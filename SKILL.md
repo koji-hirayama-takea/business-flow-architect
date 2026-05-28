@@ -86,7 +86,7 @@ invocation_examples:
 業務フロー一式の出力先はどこにしますか?
 
 候補:
-A. ./ai-outputs/business-flow/   — モノレポ型プロジェクト向け(takea_space 等の出力集約)
+A. ./ai-outputs/business-flow/   — モノレポ型プロジェクト向け(`ai-outputs/` に集約する方式)
 B. ./業務フロー/                  — プロジェクトルート直下、実務資産扱い
 C. ./docs/business-flow/         — ドキュメント体系の中に組み込む
 D. このスキルディレクトリ内 .claude/skills/business-flow-architect/outputs/   ← ⚠️ 推奨しない (リポは配布物、利用者の実成果物は別の場所に出すべき)
@@ -227,7 +227,7 @@ output:
 
   # 候補一覧
   alternatives:
-    - "./ai-outputs/business-flow/"                   # A. モノレポ型プロジェクト向け (takea_space 等)
+    - "./ai-outputs/business-flow/"                   # A. モノレポ型プロジェクト向け
     - "./業務フロー/"                                 # B. プロジェクトルート直下 (実務資産扱い)
     - "./docs/business-flow/"                         # C. ドキュメント体系内
     - ".claude/skills/business-flow-architect/outputs/"  # D. リポ内 ⚠️ 推奨しない
