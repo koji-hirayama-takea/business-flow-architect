@@ -1,0 +1,13 @@
+# 利用者の生成物 (デフォルト出力先)
+outputs/
+
+# OS / エディタ
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# 一時ファイル
+*.tmp
+*.bak

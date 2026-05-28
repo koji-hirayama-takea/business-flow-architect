@@ -1,0 +1,252 @@
+<mxfile host="65bd71144e">
+  <diagram name="経費精算プロセス_業務フロー図" id="bp-expense-001">
+    <mxGraphModel dx="1280" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2339" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- タイトル -->
+        <mxCell id="title" value="経費精算プロセス 業務フロー図 v1.0&#xa;株式会社サンプル(架空) 経理部 / 月次経費精算" style="text;fontSize=16;fontStyle=1;align=center;whiteSpace=wrap;html=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1190" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- スイムレーンコンテナ (7 レーン: 使うものだけ、未使用は削除して詰めた) -->
+        <mxCell id="swim-container" value="" style="swimlane;startSize=0;horizontal=0;swimlaneFillColor=#ffffff;html=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="90" width="1190" height="1180" as="geometry"/>
+        </mxCell>
+
+        <!-- 7 レーン (架空ケースで実際に使うものだけ) -->
+        <mxCell id="lane-soto" value="社外 (取引先/店舗)" style="swimlane;fillColor=#F5F5F5;startSize=30;html=1;whiteSpace=wrap" vertex="1" parent="swim-container">
+          <mxGeometry x="0" y="0" width="170" height="1180" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane-front-tan" value="メンバー (フロント担当者)" style="swimlane;fillColor=#E6F3FF;startSize=30;html=1;whiteSpace=wrap" vertex="1" parent="swim-container">
+          <mxGeometry x="170" y="0" width="170" height="1180" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane-front-shou" value="上長 (フロント承認者)" style="swimlane;fillColor=#E6F3FF;startSize=30;html=1;whiteSpace=wrap" vertex="1" parent="swim-container">
+          <mxGeometry x="340" y="0" width="170" height="1180" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane-back-tan" value="佐藤 (経理担当)" style="swimlane;fillColor=#FFF0E6;startSize=30;html=1;whiteSpace=wrap" vertex="1" parent="swim-container">
+          <mxGeometry x="510" y="0" width="170" height="1180" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane-back-shou" value="田中 (経理マネージャー)" style="swimlane;fillColor=#FFF0E6;startSize=30;html=1;whiteSpace=wrap" vertex="1" parent="swim-container">
+          <mxGeometry x="680" y="0" width="170" height="1180" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane-system" value="社内システム&#xa;(マネーフォワード経費 / 社内会計)" style="swimlane;fillColor=#F0E6FF;startSize=30;html=1;whiteSpace=wrap;fontSize=10" vertex="1" parent="swim-container">
+          <mxGeometry x="850" y="0" width="170" height="1180" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane-saas" value="社外サービス&#xa;(三菱 UFJ 銀行)" style="swimlane;fillColor=#F5F5F5;startSize=30;html=1;whiteSpace=wrap;fontSize=10" vertex="1" parent="swim-container">
+          <mxGeometry x="1020" y="0" width="170" height="1180" as="geometry"/>
+        </mxCell>
+
+        <!-- 開始ノード (メンバーレーン) -->
+        <mxCell id="start" value="開始&#xa;(経費発生)" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#D5E8D4;strokeColor=#82B366" vertex="1" parent="lane-front-tan">
+          <mxGeometry x="35" y="50" width="100" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- P-001: 経費発生・領収書受領 (メンバーレーン) -->
+        <mxCell id="p001" value="P-001&#xa;経費発生・&#xa;領収書受領" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#DAEEFF;strokeColor=#6C8EBF;fontSize=11" vertex="1" parent="lane-front-tan">
+          <mxGeometry x="25" y="130" width="120" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- F-001: 領収書 (社外レーン、P-001 と並んで) -->
+        <mxCell id="f001" value="F-001&#xa;領収書&#xa;(紙/PDF)" style="shape=note;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10" vertex="1" parent="lane-soto">
+          <mxGeometry x="30" y="130" width="110" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- C-001: 領収書紛失 (メンバーレーン、P-001 の下) -->
+        <mxCell id="c001" value="⚠️ C-001&#xa;領収書紛失&#xa;(月 5-10 件)" style="shape=callout;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacingTop=4;spacingBottom=16;fillColor=#FFE6E6;strokeColor=#D32F2F;fontStyle=1;fontSize=10" vertex="1" parent="lane-front-tan">
+          <mxGeometry x="5" y="200" width="160" height="85" as="geometry"/>
+        </mxCell>
+
+        <!-- P-002: 経費入力 (メンバーレーン) -->
+        <mxCell id="p002" value="P-002&#xa;経費入力&#xa;(マネーフォワード)" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#DAEEFF;strokeColor=#6C8EBF;fontSize=11" vertex="1" parent="lane-front-tan">
+          <mxGeometry x="25" y="290" width="120" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- F-002: 経費申請データ (社内システムレーン) -->
+        <mxCell id="f002" value="F-002&#xa;経費申請データ" style="shape=note;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10" vertex="1" parent="lane-system">
+          <mxGeometry x="30" y="290" width="110" height="65" as="geometry"/>
+        </mxCell>
+
+        <!-- C-002: 月末まとめ入力 (メンバーレーン、P-002 の下) -->
+        <mxCell id="c002" value="⚠️ C-002&#xa;月末まとめ入力&#xa;抜け漏れ・遅延" style="shape=callout;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacingTop=4;spacingBottom=16;fillColor=#FFE6E6;strokeColor=#D32F2F;fontStyle=1;fontSize=10" vertex="1" parent="lane-front-tan">
+          <mxGeometry x="5" y="360" width="160" height="85" as="geometry"/>
+        </mxCell>
+
+        <!-- P-003: 上長承認 (上長レーン) -->
+        <mxCell id="p003" value="P-003&#xa;上長承認 (1 次)" style="rhombus;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFE6E6;strokeColor=#B85450;fontSize=11" vertex="1" parent="lane-front-shou">
+          <mxGeometry x="20" y="450" width="130" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- F-003: 上長承認データ (社内システムレーン) -->
+        <mxCell id="f003" value="F-003&#xa;上長承認データ" style="shape=note;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10" vertex="1" parent="lane-system">
+          <mxGeometry x="30" y="460" width="110" height="65" as="geometry"/>
+        </mxCell>
+
+        <!-- C-003: 上長承認遅延 (上長レーン、P-003 の下) -->
+        <mxCell id="c003" value="⚠️ C-003&#xa;承認遅延&#xa;(最大 2-3 週間)" style="shape=callout;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacingTop=4;spacingBottom=16;fillColor=#FFE6E6;strokeColor=#D32F2F;fontStyle=1;fontSize=10" vertex="1" parent="lane-front-shou">
+          <mxGeometry x="5" y="540" width="160" height="85" as="geometry"/>
+        </mxCell>
+
+        <!-- P-004: 経理チェック (経理担当レーン) -->
+        <mxCell id="p004" value="P-004&#xa;経理チェック&#xa;(勘定科目 + 税区分)" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#DAEEFF;strokeColor=#6C8EBF;fontSize=11" vertex="1" parent="lane-back-tan">
+          <mxGeometry x="20" y="630" width="130" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- F-004: 勘定科目仕訳データ (社内システムレーン) -->
+        <mxCell id="f004" value="F-004&#xa;勘定科目&#xa;仕訳データ" style="shape=note;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10" vertex="1" parent="lane-system">
+          <mxGeometry x="30" y="635" width="110" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- C-004: 勘定科目間違い (経理担当レーン、P-004 の下) -->
+        <mxCell id="c004" value="⚠️ C-004&#xa;科目間違い 15-20%&#xa;(月 1.5 時間ロス)" style="shape=callout;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacingTop=4;spacingBottom=16;fillColor=#FFE6E6;strokeColor=#D32F2F;fontStyle=1;fontSize=10" vertex="1" parent="lane-back-tan">
+          <mxGeometry x="5" y="710" width="160" height="85" as="geometry"/>
+        </mxCell>
+
+        <!-- P-005: 経理マネージャー承認 (経理マネージャーレーン) -->
+        <mxCell id="p005" value="P-005&#xa;経理マネージャー&#xa;承認 (2 次)" style="rhombus;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFE6E6;strokeColor=#B85450;fontSize=11" vertex="1" parent="lane-back-shou">
+          <mxGeometry x="20" y="800" width="130" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- P-006: 振込データ作成 (経理担当レーン) -->
+        <mxCell id="p006" value="P-006&#xa;振込データ作成&#xa;(CSV 生成)" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#DAEEFF;strokeColor=#6C8EBF;fontSize=11" vertex="1" parent="lane-back-tan">
+          <mxGeometry x="20" y="910" width="130" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- F-005: 振込指示書 (社内システムレーン) -->
+        <mxCell id="f005" value="F-005&#xa;振込指示書&#xa;(CSV)" style="shape=note;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10" vertex="1" parent="lane-system">
+          <mxGeometry x="30" y="910" width="110" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- C-005: 月末振込集中 (経理担当レーン、P-006 の下) -->
+        <mxCell id="c005" value="⚠️ C-005&#xa;月末振込集中&#xa;経理過負荷" style="shape=callout;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacingTop=4;spacingBottom=16;fillColor=#FFE6E6;strokeColor=#D32F2F;fontStyle=1;fontSize=10" vertex="1" parent="lane-back-tan">
+          <mxGeometry x="5" y="980" width="160" height="85" as="geometry"/>
+        </mxCell>
+
+        <!-- P-007: 銀行振込 (社外サービスレーン) -->
+        <mxCell id="p007" value="P-007&#xa;銀行振込&#xa;(月末一括)" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#E8D8FF;strokeColor=#9673A6;fontSize=11" vertex="1" parent="lane-saas">
+          <mxGeometry x="20" y="910" width="130" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- P-008: 振込完了通知 (社内システムレーン、自動) -->
+        <mxCell id="p008" value="P-008&#xa;振込完了通知&#xa;(自動メール)" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#E8D8FF;strokeColor=#9673A6;fontSize=11" vertex="1" parent="lane-system">
+          <mxGeometry x="20" y="1040" width="130" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- 終了ノード (メンバーレーン) -->
+        <mxCell id="end" value="終了&#xa;(振込完了)" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fillColor=#F8CECC;strokeColor=#B85450" vertex="1" parent="lane-front-tan">
+          <mxGeometry x="35" y="1100" width="100" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- フロー線 (通常: 実線) -->
+        <mxCell id="flow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="start" target="p001">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="flow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="p001" target="p002">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="flow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="p002" target="p003">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="flow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="p003" target="p004">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="flow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="p004" target="p005">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="flow6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="p005" target="p006">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="flow7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="p006" target="p007">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="flow8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="p007" target="p008">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="flow9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1" edge="1" parent="1" source="p008" target="end">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- システム連携 (破線) -->
+        <mxCell id="flow-s001" value="S-001&#xa;リアルタイム" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;fontSize=9;labelBackgroundColor=#ffffff" edge="1" parent="1" source="p005" target="f004">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="flow-s002" value="S-002&#xa;月次バッチ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;fontSize=9;labelBackgroundColor=#ffffff" edge="1" parent="1" source="f005" target="p007">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- 凡例 (swim-container の下、絶対座標)。実際の図形を並べた視覚的凡例 -->
+        <mxCell id="legend-bg" value="" style="rounded=0;fillColor=#F5F5F5;strokeColor=#666666;html=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="1290" width="620" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-title" value="【凡例】" style="text;fontSize=14;fontStyle=1;align=left;verticalAlign=middle;html=1" vertex="1" parent="1">
+          <mxGeometry x="60" y="1300" width="200" height="25" as="geometry"/>
+        </mxCell>
+
+        <!-- 左列 (4 行) -->
+        <mxCell id="legend-ellipse" value="" style="ellipse;fillColor=#D5E8D4;strokeColor=#82B366;html=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="1335" width="40" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-ellipse-label" value="開始 / 終了 (楕円)" style="text;align=left;verticalAlign=middle;html=1" vertex="1" parent="1">
+          <mxGeometry x="120" y="1335" width="200" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend-rounded" value="" style="rounded=1;fillColor=#DAEEFF;strokeColor=#6C8EBF;html=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="1370" width="40" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-rounded-label" value="業務プロセス P-XXX (角丸四角)" style="text;align=left;verticalAlign=middle;html=1" vertex="1" parent="1">
+          <mxGeometry x="120" y="1370" width="200" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend-rhombus" value="" style="rhombus;fillColor=#FFE6E6;strokeColor=#B85450;html=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="1405" width="40" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-rhombus-label" value="承認・判断 (ひし形)" style="text;align=left;verticalAlign=middle;html=1" vertex="1" parent="1">
+          <mxGeometry x="120" y="1408" width="200" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend-rect" value="" style="rounded=0;fillColor=#E8D8FF;strokeColor=#9673A6;html=1" vertex="1" parent="1">
+          <mxGeometry x="70" y="1445" width="40" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-rect-label" value="システム処理 P-XXX (四角)" style="text;align=left;verticalAlign=middle;html=1" vertex="1" parent="1">
+          <mxGeometry x="120" y="1445" width="200" height="22" as="geometry"/>
+        </mxCell>
+
+        <!-- 右列 (4 行) -->
+        <mxCell id="legend-note" value="" style="shape=note;fillColor=#FFF2CC;strokeColor=#D6B656;html=1" vertex="1" parent="1">
+          <mxGeometry x="325" y="1330" width="60" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-note-label" value="ファイル・データ F-XXX (付箋)" style="text;align=left;verticalAlign=middle;html=1" vertex="1" parent="1">
+          <mxGeometry x="405" y="1335" width="250" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend-callout" value="" style="shape=callout;fillColor=#FFE6E6;strokeColor=#D32F2F;html=1;position=0.5;base=15;size=10" vertex="1" parent="1">
+          <mxGeometry x="325" y="1368" width="70" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend-callout-label" value="課題発生ポイント C-XXX (吹き出し)" style="text;align=left;verticalAlign=middle;html=1" vertex="1" parent="1">
+          <mxGeometry x="405" y="1376" width="250" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend-arrow-solid" style="endArrow=classic;html=1;rounded=0" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="1418" as="sourcePoint"/>
+            <mxPoint x="385" y="1418" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-arrow-solid-label" value="通常フロー (実線)" style="text;align=left;verticalAlign=middle;html=1" vertex="1" parent="1">
+          <mxGeometry x="390" y="1408" width="250" height="22" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend-arrow-dashed" style="endArrow=classic;html=1;dashed=1;rounded=0" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="1455" as="sourcePoint"/>
+            <mxPoint x="385" y="1455" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-arrow-dashed-label" value="システム連携 S-XXX (破線)" style="text;align=left;verticalAlign=middle;html=1" vertex="1" parent="1">
+          <mxGeometry x="390" y="1445" width="250" height="22" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
